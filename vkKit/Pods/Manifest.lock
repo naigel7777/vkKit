@@ -1,16 +1,44 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.0.0)
+  - DotsLoading (1.0.0)
+  - INSPhotoGallery (1.2.8)
+  - Kingfisher (5.13.1):
+    - Kingfisher/Core (= 5.13.1)
+  - Kingfisher/Core (5.13.1)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - DotsLoading
+  - INSPhotoGallery
+  - Kingfisher
+  - RealmSwift
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DotsLoading
+    - INSPhotoGallery
+    - Kingfisher
+    - Realm
+    - RealmSwift
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  DotsLoading: 1721e46a85d2424e5febbe705fb9e8b23cfea2db
+  INSPhotoGallery: ad317cb9a59c7a5f08550e4155b49622c24dcab3
+  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 6330315b57fa903c67597f125edec65708ec4a9e
+PODFILE CHECKSUM: ddb842deb7a5039ba50fed63fea745d226516bb8
 
 COCOAPODS: 1.8.4

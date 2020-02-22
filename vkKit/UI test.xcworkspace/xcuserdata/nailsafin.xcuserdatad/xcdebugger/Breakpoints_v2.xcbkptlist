@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4662F299-791A-4486-82E5-70DE050D46B3"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B7BF74B-B1B8-471F-B225-1011C3FB0A7F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/News/NewsCell/NewsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "setup(item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C077975-7C81-4F7F-9782-90992EAEE1E0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/News/NewsCell/NewsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E1A088B-51BB-41E3-A869-E9CDB53D285D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Screens/Groups/GroupController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "TableViewGroup"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B50B3743-7824-4167-A6D2-C4B485A3132F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Screens/Groups/GroupController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Screens/Groups/GroupController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "addsearch(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 8f000c61eb370ec7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.search2.getter : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 8b52b179c16f2533"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.search2.setter : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 9efab862c99c6442"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.search2.modify : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 78ae5290ce3b13f9"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.search2.modify : Swift.Optional&lt;__C.UISearchBar&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 7d8467577990be2b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.init(style: __C.UITableViewStyle) -&gt; UI_test.TableViewGroup"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - 4d9a17cf5c816763"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; UI_test.TableViewGroup"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  uuid = "14388689-52D0-4D59-A0B0-4161C609F0D1 - ad0bd80843806575"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.TableViewGroup.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;UI_test.TableViewGroup&gt;"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Screens/Groups/GroupController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "119">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "288CFEFC-8D69-45CE-B258-9AA67A7F2461"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Models/RealmModels/RealmFriends.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "RealmFriends"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "288CFEFC-8D69-45CE-B258-9AA67A7F2461 - dc00c9f543e5e1fc"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.RealmFriends.__allocating_init() -&gt; UI_test.RealmFriends"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Models/RealmModels/RealmFriends.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "288CFEFC-8D69-45CE-B258-9AA67A7F2461 - e57e6fdcb00118ed"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.RealmFriends.init() -&gt; UI_test.RealmFriends"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Models/RealmModels/RealmFriends.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "288CFEFC-8D69-45CE-B258-9AA67A7F2461 - ffc8b91fb8c91458"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.RealmFriends.__ivar_destroyer"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Models/RealmModels/RealmFriends.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "288CFEFC-8D69-45CE-B258-9AA67A7F2461 - 2d12217b3b3fba32"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UI_test.RealmFriends.__deallocating_deinit"
+                  moduleName = "UI test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nailsafin/Documents/gbprojects/GB_less_UI_1/GB_LESS_UI/UI%20test/UI%20test/Models/RealmModels/RealmFriends.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA736123-6365-4EE4-A7A7-3A1A150DFFDF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Models/RealmModels/RealmRepository/RepoRealmFriend.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "addFriend(id:username:surname:avatarPath:onlineStatus:deactivated:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F169C9C2-C354-40D9-B46B-CFD4FE8A5042"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/Screens/Friends/PhotoController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55A30EC8-38A1-4628-A4C4-0BED016B472A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UI test/VKAPI/VKApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "getNews(token:async:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
