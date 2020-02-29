@@ -15,7 +15,7 @@ class VKapiErrorParser {
     func showErrorAlert(_ vc: UIViewController?, errorMessage: String) {
         let alter = UIAlertController(title: "Ошибка", message: errorMessage, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default){ _ in
-//            vc?.performSegue(withIdentifier: "FriendUnwind", sender: nil)
+            vc?.performSegue(withIdentifier: "unwindBackToFriends", sender: self)
         }
         alter.addAction(action)
         if let vc = vc {

@@ -11,6 +11,7 @@ struct News
     var textNews: String
     var publicDate: String
     var avatar: String
+    
     init(username: String, avatar: String, imagePath: [String], textNews: String, publicDate: String)
     {
         

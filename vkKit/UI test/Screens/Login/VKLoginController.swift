@@ -18,6 +18,10 @@ class VKLoginController: UIViewController
     let vkAppID = "7282510"
     let vkApi = VKApi()
     var loadingView: DotsLoadingView = DotsLoadingView(colors: nil)
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+    
+    }
     
     func getrequest() -> URLRequest
         
@@ -108,6 +112,7 @@ extension VKLoginController: WKNavigationDelegate
         Session.shared.userid = params["user_id"]!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let VC = storyboard.instantiateViewController(identifier: "MainTabBar")
+//        VC.webView2 = self.webView
         VC.modalPresentationStyle = .custom
         VC.modalPresentationCapturesStatusBarAppearance = true
         VC.transitioningDelegate = self

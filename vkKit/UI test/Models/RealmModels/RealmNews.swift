@@ -13,7 +13,7 @@ class RealmNews: Object{
     @objc dynamic var id = 0
     @objc dynamic var newsName = ""
     let user = List<RealmFriends>()
-    @objc dynamic var imagePath = ""
+   let imagePath = List<String>()
     @objc dynamic var textNews = ""
     @objc dynamic var publicDate = ""
     @objc dynamic var avatar = ""

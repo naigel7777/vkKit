@@ -19,15 +19,18 @@ class FriendsController: UITableViewController {
     @IBOutlet weak var searchBarFriends: UISearchBar!
     
     @IBAction func exitbutton(_ sender: Any) {// DOES NOT WORK !!!
-        let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
-        let date = Date()
-        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date, completionHandler:{ })
+       
+        webView2?.configuration.websiteDataStore.httpCookieStore.getAllCookies { [weak self] cookies in
+            cookies.forEach {  self?.webView2?.configuration.websiteDataStore.httpCookieStore.delete($0) }
+        }
+        self.vc?.performSegue(withIdentifier: "unwindToLogin", sender: self)
+        }
         
-    }
-   
+
+    var webView2: WKWebView?
     var presenter: FriendsPresenter?
     var configurator: FriendsConfigurator?
-
+    var vc: UIViewController?
  
     var customRefreshControl = UIRefreshControl()
    
@@ -41,6 +44,10 @@ class FriendsController: UITableViewController {
         configurator?.configure(view: self)
         presenter?.viewDidLoad2()
         searchBarFriends.delegate = self
+        
+        if let vc = presentingViewController?.presentingViewController as? VKLoginController {
+            webView2 = vc.webView
+        }
     }
     
 
@@ -117,7 +124,7 @@ extension FriendsController: UISearchBarDelegate
     view.endEditing(true)
     }
     
-    @IBAction func unwindToFriends(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindBackToFriends(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
     
     }

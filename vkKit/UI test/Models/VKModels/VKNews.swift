@@ -43,34 +43,52 @@ struct VKNews  {
             
             let fullname: String
             let avatar: String
-            let imagePath: [String]
+            var imagePath: [String] = []
             if item.sourceID > 0 {
                 let owner = profiles.first(where: { $0.id == item.sourceID })
                 fullname = (owner?.firstName ?? "") + " " + (owner?.lastName ?? "")
                 avatar = owner?.photo50 ?? ""
-//                let image = items.map { () -> T in
-//                    <#code#>
-//                }
-                imagePath  = []
-                
             } else {
-                let group = groups.first(where: { $0.id == item.sourceID })
+                let group = groups.first(where: { $0.id == -item.sourceID })
                 fullname = group?.name ?? ""
                 avatar = group?.photo50 ?? ""
-                imagePath  = []
             }
             
-         
+            item.attachments.filter({$0.type == "photo"}).forEach { (attach) in
+                if let photos = attach.photo?.sizes {
+                    var maxP: SizeNews = photos.first ?? .zero
+                    photos.forEach{
+                        if $0.width > maxP.width {
+                            maxP = $0
+                        }
+                    }
+                    imagePath.append(maxP.url)
+                    
+                }
+                
+                
+            }
+            
             array.append(News(username: fullname,
                               avatar: avatar,
                               imagePath: imagePath,
                               textNews: item.text,
-                              publicDate: String(item.date)))
+                              publicDate: toDate(item.date)))
         }
         
         
         return array
         
+    }
+    
+    private func toDate(_ value: Int) -> String  {
+        let date = Date(timeIntervalSince1970: TimeInterval(value))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") 
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "HH:mm dd-MM-yyyy"
+         return dateFormatter.string(from: date)
+       
     }
 
 }
@@ -139,20 +157,30 @@ struct Photo {
 
 // MARK: - Size
 struct SizeNews {
-    let type: SizeType?
+    let type: SizeType
     let url: String
     let width, height: Int
    
 
     init(_ json: JSON) {
         
-        type = SizeType(rawValue: json["type"].stringValue)
+        type = SizeType(rawValue: json["type"].stringValue) ?? .m
         url = json["url"].stringValue
         width = json["width"].intValue
         height = json["height"].intValue
         
     }
-
+    
+    private init() {
+        type = .m
+        url = ""
+        width = -1
+        height = -1
+    }
+    
+    static var zero: SizeNews {
+        return SizeNews()
+    }
 }
 
 enum SizeType: String {

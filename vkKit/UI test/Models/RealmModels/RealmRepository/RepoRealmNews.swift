@@ -15,7 +15,7 @@ class RepositoryRealmNews  {
         let newNews = RealmNews()
         newNews.id = id
         newNews.newsName = newsname
-        newNews.imagePath = imagePath
+//        newNews.imagePath = imagePath
         newNews.user.append(user)
         newNews.publicDate = publicdate
         newNews.textNews = textNews

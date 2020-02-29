@@ -327,8 +327,12 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="sar-S1-hld"/>
+                    <connections>
+                        <segue destination="cfk-fk-A3a" kind="unwind" identifier="unwindBackToFriends" unwindAction="unwindBackToFriends:" id="0IQ-28-lvM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNF-Yg-1JV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cfk-fk-A3a" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4737.68115942029" y="454.89130434782612"/>
         </scene>
@@ -422,11 +426,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBarFriends" destination="1gP-bQ-dmQ" id="VUi-nq-1Pg"/>
-                        <segue destination="ULR-Da-vbR" kind="unwind" identifier="FriendUnwind" unwindAction="unwindToFriends:" id="XXa-TD-W8q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8t-qF-Ol2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ULR-Da-vbR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3975.36231884058" y="454.07608695652175"/>
         </scene>
@@ -652,9 +654,11 @@
                         <segue destination="VjI-ot-fDl" kind="relationship" relationship="viewControllers" id="yWH-CX-dSc"/>
                         <segue destination="7RS-xz-w1T" kind="relationship" relationship="viewControllers" id="CUc-py-hWK"/>
                         <segue destination="jru-tK-sWY" kind="relationship" relationship="viewControllers" id="yhX-a2-qEk"/>
+                        <segue destination="0iB-Al-5ZU" kind="unwind" unwindAction="unwindToLogin:" id="y9u-QH-e4c"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyt-NW-YhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="0iB-Al-5ZU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="889" y="127"/>
         </scene>
