@@ -10,12 +10,10 @@ import Foundation
 import RealmSwift
 
 class RealmNews: Object{
-    @objc dynamic var id = 0
-    @objc dynamic var newsName = ""
-    let user = List<RealmFriends>()
-   let imagePath = List<String>()
+    @objc dynamic var userName = ""
+    let imagePath = List<String>()
     @objc dynamic var textNews = ""
     @objc dynamic var publicDate = ""
     @objc dynamic var avatar = ""
-    let group = List<RealmGroups>()
+    
 }

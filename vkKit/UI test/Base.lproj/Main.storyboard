@@ -417,7 +417,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Друзья" id="780-zS-XhJ">
-                        <barButtonItem key="leftBarButtonItem" title="Exit" id="rwd-bI-Bkd">
+                        <barButtonItem key="rightBarButtonItem" title="Exit" id="rwd-bI-Bkd">
                             <connections>
                                 <action selector="exitbutton:" destination="0KP-tq-Ko6" id="OTb-t1-m6G"/>
                             </connections>
@@ -610,35 +610,6 @@
             </objects>
             <point key="canvasLocation" x="2950" y="-357"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="hux-9F-rP0">
-            <objects>
-                <tableViewController id="L0q-CO-bdj" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RCb-ma-zgY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchingGroupCells" id="sRH-pq-b3w">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRH-pq-b3w" id="NLP-la-KVy">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="L0q-CO-bdj" id="Dcf-jU-Bhi"/>
-                            <outlet property="delegate" destination="L0q-CO-bdj" id="Prx-c7-pz3"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="3XV-g3-2Yn"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yHz-Xx-zhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4804" y="-357"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KxH-1y-Fr1">
             <objects>
@@ -661,28 +632,6 @@
                 <exit id="0iB-Al-5ZU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="889" y="127"/>
-        </scene>
-        <!--Мои друзья-->
-        <scene sceneID="DdS-yM-XHr">
-            <objects>
-                <tableViewController id="G2d-X4-skK" customClass="MessageViewController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="80" estimatedRowHeight="90" sectionHeaderHeight="25" sectionFooterHeight="1" id="w8r-yp-I0E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="G2d-X4-skK" id="7bA-ee-hkA"/>
-                            <outlet property="delegate" destination="G2d-X4-skK" id="8ID-5m-tUt"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Мои друзья" id="wBN-Pp-4vY"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYC-qk-vu1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3975" y="1143"/>
         </scene>
     </scenes>
     <resources>

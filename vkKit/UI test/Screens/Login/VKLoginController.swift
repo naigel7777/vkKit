@@ -58,7 +58,7 @@ class VKLoginController: UIViewController
 // loadingView.show()
         webView.load(getrequest())
         
-   //    self.loadingView.stop()
+  //     self.loadingView.stop()
  
         
     }
@@ -84,8 +84,11 @@ extension VKLoginController: WKNavigationDelegate
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         loadingView.show()
     }
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         loadingView.stop()
+    }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        loadingView.stop()
     }
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void)
     {
@@ -97,7 +100,7 @@ extension VKLoginController: WKNavigationDelegate
             decisionHandler(.allow)
             return
         }
-        loadingView.show()
+ //       loadingView.show()
         let params = fragment.components(separatedBy: "&")
             .map{ $0.components(separatedBy: "=")}.reduce([String: String]()) {
                 value, params in
@@ -122,7 +125,7 @@ extension VKLoginController: WKNavigationDelegate
             
         }
         present(VC, animated: true) {
-            self.loadingView.stop()
+ //           self.loadingView.stop()
         }
 
         decisionHandler(.cancel)

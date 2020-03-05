@@ -9,19 +9,47 @@
 import Foundation
 import RealmSwift
 
-class RepositoryRealmNews  {
-    func addNews (id: Int, newsname: String, imagePath: String, user: RealmFriends, publicdate: String, textNews: String, avatar: String)  {
+protocol NewsRepository {
+    func addNews (userName: String, imagePath: String, publicdate: String, textNews: String, avatar: String)
+    func getAllNews() throws -> Results<RealmNews>
+    func addLastNews (news: [News])
+}
+
+class RepositoryRealmNews: NewsRepository  {
+    
+    func addNews (userName: String, imagePath: String, publicdate: String, textNews: String, avatar: String)  {
         let realm = try! Realm()
         let newNews = RealmNews()
-        newNews.id = id
-        newNews.newsName = newsname
-//        newNews.imagePath = imagePath
-        newNews.user.append(user)
+        newNews.userName = userName
+        newNews.imagePath.append(imagePath)
         newNews.publicDate = publicdate
         newNews.textNews = textNews
         newNews.avatar = avatar
         try! realm.write {
             realm.add(newNews)
+        }
+    }
+    
+    func addLastNews (news: [News])  {
+        let realm = try! Realm()
+        var lastNews = [RealmNews]()
+        news.forEach { news in
+            let newNews = RealmNews()
+            newNews.userName = news.userName
+//            let image = news.imagePath
+//            newNews.imagePath.append(image)
+//            newNews.imagePath = news.imagePath
+            newNews.publicDate = news.publicDate
+            newNews.textNews = news.textNews
+            newNews.avatar = news.avatar
+                   lastNews.append(newNews)
+            
+        }
+       
+        
+        try! realm.write {
+            
+            realm.add(lastNews)
         }
     }
     

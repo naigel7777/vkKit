@@ -163,6 +163,7 @@ class FriendCell: UITableViewCell
     
         let url = URL(string: model.avatarPath)
         self.avatar.kf.setImage(with: url)
+        self.avatar.layer.cornerRadius = 25
         
     }
 }
