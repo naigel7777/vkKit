@@ -21,8 +21,8 @@ class RepositoryRealmGroup: GroupRepository  {
         let realm = try! Realm()
         let newGroup = RealmGroups()
         newGroup.id = id
-        newGroup.groupName = groupname
-        newGroup.avatarPath = avatarPath
+        newGroup.name = groupname
+        newGroup.photo50 = avatarPath
         try! realm.write {
             realm.add(newGroup)
         }
@@ -32,14 +32,13 @@ class RepositoryRealmGroup: GroupRepository  {
         do {
             let realm = try! Realm()
             
-            
             try realm.write() {
                 var groupsToAdd = [RealmGroups]()
                 groups.forEach { group in
                     let groupRealm = RealmGroups()
                     groupRealm.id = group.id
-                    groupRealm.groupName = group.name
-                    groupRealm.avatarPath = group.photo50
+                    groupRealm.name = group.name
+                    groupRealm.photo50 = group.photo50
                     groupsToAdd.append(groupRealm)
                 }
                 realm.add(groupsToAdd, update: .modified)
@@ -66,7 +65,7 @@ class RepositoryRealmGroup: GroupRepository  {
     func searchGroups(name: String) throws -> Results<RealmGroups> {
         do {
             let realm = try Realm()
-            return realm.objects(RealmGroups.self).filter("groupName CONTAINS[c] %@", name)
+            return realm.objects(RealmGroups.self).filter("name CONTAINS[c] %@", name)
         } catch {
             throw error
         }

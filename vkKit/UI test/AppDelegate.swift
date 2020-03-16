@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
-       let config = Realm.Configuration(schemaVersion: 4)
+       let config = Realm.Configuration(schemaVersion: 6)
         print(NSTemporaryDirectory())
        Realm.Configuration.defaultConfiguration = config
        

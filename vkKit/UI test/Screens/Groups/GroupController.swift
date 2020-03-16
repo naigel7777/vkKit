@@ -5,22 +5,22 @@ import RealmSwift
 
 class TableViewGroup: UITableViewController {
     
-//    struct Section<T> {
-//        var title: String
-//        var item: [T]
-//    }
+    struct Section<T> {
+        var title: String
+        var item: [T]
+    }
 
    
     
     @IBOutlet weak var search2: UISearchBar!
     private var vkApi = VKApi()
     var database = RepositoryRealmGroup()
-    var groups: Results<RealmGroups>?
+    var groups: Results<RealmGroups>!
     var token: NotificationToken?
     var errorParser = VKapiErrorParser()
     weak var vc: UIViewController?
     var searchingGroup = [ItemGroup]()
-//    var groupSection = [Section<ItemGroup>]()
+    var groupSection = [Section<RealmGroups>]()
     
     @IBAction func addsearch(_ sender: Any) {
         if search2.isHidden {
@@ -58,12 +58,27 @@ class TableViewGroup: UITableViewController {
         search2.isHidden = true
         search2.frame.size.height = 0
         addRefreshConrol()
+        
         showGroups()
-        vkRequest()
         
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getGroupsFromRealm()
+       promiseVkRequest()
+    }
+    
+    private func getGroupsFromRealm() {
+        do {
+            self.groups = try database.getAllGroups()
+        self.makeSortedSection()
+            self.tableView.reloadData()
+        }
+        catch { print(error)}
+        }
     
     func showGroups() {
         do {
@@ -71,13 +86,14 @@ class TableViewGroup: UITableViewController {
             token = groups?.observe { [weak self] results in
                 switch results {
                 case .error(let error): print(error)
-                case .initial: self?.tableView.reloadData()
-                case let .update(_, deletions, insertions, modifications):
-                    self?.tableView.beginUpdates()
-                    self?.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .none)
-                    self?.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .none)
-                    self?.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .none)
-                    self?.tableView.endUpdates()
+                case .initial, .update:
+                    self?.groups = try? self?.database.getAllGroups()
+                    self?.makeSortedSection()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                    
+                    
                 }
             }
         } catch {
@@ -100,6 +116,16 @@ class TableViewGroup: UITableViewController {
              }
     }
     
+    func promiseVkRequest() {
+        let promise = vkApi.getGroupListFuture(token: Session.shared.token, userID: Session.shared.userid)
+        
+        promise.done { (groups) in
+            self.database.addAllGroups(groups: groups)
+        }.catch { (error) in
+            print(error)
+        }
+    }
+    
 // MARK: Refresh controll
     var customRefreshControl = UIRefreshControl()
     func addRefreshConrol()
@@ -117,10 +143,7 @@ class TableViewGroup: UITableViewController {
             switch result {
             case .success(let groups):
                 self.database.addAllGroups(groups: groups)
-            DispatchQueue.main.async {
- //               self.makeSortedSection()
-                self.tableView.reloadData()
-            }
+    
                 case.failure(let err):
                 self.errorParser.showErrorAlert(self.vc, errorMessage: "BAD REQEST")
                 print ("GOT ERROR \(err)")
@@ -131,80 +154,68 @@ class TableViewGroup: UITableViewController {
         }
     }
     }
-  //MARK: Make sorted sections
+ // MARK: Make sorted sections
 
-//    func makeSortedSection() {
-//        let groupDictionary = Dictionary.init(grouping: groups)
-//        {
-//            $0.name.prefix(1)
-//        }
-//        groupSection = groupDictionary.map { Section(title: String($0.key), item: $0.value)}
-//        groupSection.sort {$0.title < $1.title}
-//    }
-    // MARK: Configurate Table View
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return groups?.count ?? 0
-//    }
-//
+    func makeSortedSection() {
+        let groupDictionary = Dictionary.init(grouping: groups) { $0.name.prefix(1) }
+        groupSection = groupDictionary.map { Section(title: String($0.key), item: $0.value)}
+        groupSection.sort {$0.title < $1.title}
+    }
+ //    MARK: Configurate Table View
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return groupSection.count
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups?.count ?? 0
+        return groupSection[section].item.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCells", for: indexPath) as? GroupCells,
-            let group = groups?[indexPath.row]
-            else {
-                return UITableViewCell()
-            }
-      /*  let item = groupSection[indexPath.section].item[indexPath.row]
-        cell.NameGroup.text =  item.name
-        let url = URL(string: item.photo50)
-        cell.groupImage.image.kf.setImage(with: url)*/
-       
-        cell.NameGroup.text = group.groupName
-        let url = URL(string: group.avatarPath)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCells", for: indexPath) as? GroupCells
+            else { return UITableViewCell() }
+        cell.NameGroup.text =  groupSection[indexPath.section].item[indexPath.row].name
+        let url = URL(string: groupSection[indexPath.section].item[indexPath.row].photo50)
         cell.groupImage.image.kf.setImage(with: url)
         
         return cell
         
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return groupSection[section].title
-//    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return groupSection[section].title
+    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if let group = groups?[indexPath.row] {
-              database.deleteGroup(group: group)
-            }
-            
-   //         groupSection[indexPath.section].item.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
+            let group =  groupSection[indexPath.section].item[indexPath.row]
+                database.deleteGroup(group: group)
+
+            groupSection[indexPath.section].item.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-//        return groupSection.map {$0.title}
-//    }
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return groupSection.map {$0.title}
+    }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//       let view = UIView()
-//        view.backgroundColor = UIColor.white
-//
-//        let label = UILabel()
-//        label.text = groupSection[section].title
-//        label.frame = CGRect(x: 10, y: 15, width: 8, height: 15)
-//        label.textColor = UIColor.darkGray
-//        label.adjustsFontSizeToFitWidth = true
-//        view.addSubview(label)
-//
-//       return view
-//    }
-//}
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       let view = UIView()
+        view.backgroundColor = UIColor.white
+
+        let label = UILabel()
+        label.text = groupSection[section].title
+        label.frame = CGRect(x: 10, y: 15, width: 8, height: 15)
+        label.textColor = UIColor.darkGray
+        label.adjustsFontSizeToFitWidth = true
+        view.addSubview(label)
+
+       return view
+    }
+}
 
 //MARK: Search Group Delegate
-}
+
 extension TableViewGroup: UISearchBarDelegate {
 /*    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {

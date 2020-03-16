@@ -46,26 +46,10 @@
             filePath = "UI test/Screens/Groups/GroupController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "TableViewGroup"
             landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B50B3743-7824-4167-A6D2-C4B485A3132F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UI test/Screens/Groups/GroupController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -295,9 +279,9 @@
             filePath = "UI test/VKAPI/VKApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "getNews(token:async:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "getPhoto(token:ownerID:async:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

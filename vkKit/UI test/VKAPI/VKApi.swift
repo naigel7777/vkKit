@@ -12,8 +12,10 @@ import UIKit
 import WebKit
 import Alamofire
 import SwiftyJSON
+import PromiseKit
 
-enum ServerError: Error{
+
+enum ServerError: Error {
     case badRequest
     case notReacheble
 }
@@ -78,7 +80,35 @@ class VKApi
 
             }
 
+    func getGroupListFuture(token: String,userID: String) -> Promise<[ItemGroup]> {
+        let requestUrl = vkURL + "groups.get"
+        let params = ["access_token": token,
+                      "v": apiVersion,
+                      "extended": "1",
+                      "filter":"groups",
+                      "count": "30",
+                      "user_id": userID]
+        return Promise  { resolver in
+            AF.request(requestUrl,
+                       method: .get,
+                       parameters: params).responseJSON { response in
+                        switch response.result {
+                        case let .success(json):
+                            var groups = Array<ItemGroup>()
+                            let jsonGroups = (JSON(json))["response"]["items"].arrayValue
+                            jsonGroups.forEach { item in
+                                groups.append(ItemGroup(item))
+                            }
+ 
+                            resolver.fulfill(groups)
+                        case let .failure(error):
+                            resolver.reject(error)
+                        }
+            }
+        }
         
+        
+    }
     
     
     func getPhoto(token: String,ownerID: String, async: @escaping ([ItemPhoto]) -> ())
@@ -116,7 +146,7 @@ class VKApi
                            "v": apiVersion,
                            "filters":"post",
                            "return_banned": "0",
-                           "count": "50"]
+                           "count": "10"]
              
              AF.request(requestUrl,
                                method: .get,
@@ -124,26 +154,38 @@ class VKApi
                                 switch response.result {
                                
                                 case let .success(value):
-                                    async(VKNews(JSON(value)).convert())
-                                    
-                                 
+                                    async(VKNews(JSON(value)).convert)
                                 case let .failure(error):
                                     print(error)
                                 }
                                 
-//                    guard let data = response.value else {
-//                             return
-//                         }
-//                         do {
-//                             let response = try JSONDecoder().decode(VKNews.self, from: data)
-//                            async(response.response.items)
-//                         } catch {
-//                             self.errPars.showErrorAlert(self.vc, errorMessage: "Отсутсвуют новости")
-//                             print(error)
-//                         }
                      }
                  }
-    
+    func getNextNews(token: String, nextFrom: String, async: @escaping ([News], String) -> ())
+     {
+         
+         let requestUrl = vkURL + "newsfeed.get"
+         let params = ["access_token": token,
+                       "v": apiVersion,
+                       "filters":"post",
+                       "return_banned": "0",
+                       "start_from":nextFrom,
+                       "count": "10"]
+         
+         AF.request(requestUrl,
+                           method: .get,
+                           parameters: params).responseJSON { response in
+                            switch response.result {
+                           
+                            case let .success(value):
+                                let nextFrom = VKNews(JSON(value)).nextFrom
+                                async(VKNews(JSON(value)).convert, nextFrom)
+                            case let .failure(error):
+                                print(error)
+                            }
+                            
+                 }
+             }
     
     func searchGroup(token: String, searchText: String, completion:@escaping (Out<[ItemGroup], Error>) -> ())
     {

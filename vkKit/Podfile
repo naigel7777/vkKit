@@ -10,6 +10,7 @@ pod 'Kingfisher'
 pod 'RealmSwift'
 pod 'INSPhotoGallery'
 pod 'SwiftyJSON'
+pod 'PromiseKit'
   # Pods for UI test
 
 end

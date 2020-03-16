@@ -57,7 +57,9 @@ class Indicator : UIView
        contentView = loadFromXib()
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+ //       contentView.backgroundColor = .clear
         addSubview(contentView)
+        bringSubviewToFront(contentView)
         animate()
     }
     

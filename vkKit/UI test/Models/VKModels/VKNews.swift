@@ -18,25 +18,9 @@ struct VKNews  {
     var items: [NewsItem] = []
     var profiles: [Profile] = []
     var groups: [NewsGroup] = []
-//    let nextFrom: String
+    var nextFrom: String = ""
     
-    init(_ json: JSON) {
-        
-        
-        json["response"]["groups"].arrayValue.forEach { (item) in
-            groups.append(NewsGroup(item))
-        }
-        
-        json["response"]["items"].arrayValue.forEach { (item) in
-            items.append(NewsItem(item))
-        }
-        
-        json["response"]["profiles"].arrayValue.forEach { (item) in
-            profiles.append(Profile(item))
-        }
-    }
-
-    func convert() -> [News] {
+    var convert: [News] {
         var array: [News] = []
         
         items.forEach { (item) in
@@ -73,7 +57,7 @@ struct VKNews  {
                               avatar: avatar,
                               imagePath: imagePath,
                               textNews: item.text,
-                              publicDate: toDate(item.date)))
+                              publicDate: item.date.toDateString))
         }
         
         
@@ -81,14 +65,22 @@ struct VKNews  {
         
     }
     
-    private func toDate(_ value: Int) -> String  {
-        let date = Date(timeIntervalSince1970: TimeInterval(value))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") 
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm dd-MM-yyyy"
-         return dateFormatter.string(from: date)
-       
+    
+    init(_ json: JSON) {
+        
+        
+        json["response"]["groups"].arrayValue.forEach { (item) in
+            groups.append(NewsGroup(item))
+        }
+        
+        json["response"]["items"].arrayValue.forEach { (item) in
+            items.append(NewsItem(item))
+        }
+        
+        json["response"]["profiles"].arrayValue.forEach { (item) in
+            profiles.append(Profile(item))
+        }
+        nextFrom = json["next_from"].stringValue
     }
 
 }

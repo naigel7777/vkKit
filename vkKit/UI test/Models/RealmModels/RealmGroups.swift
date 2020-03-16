@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 class RealmGroups: Object {
-    @objc dynamic var id = 0
-    @objc dynamic var groupName = ""
-    @objc dynamic var avatarPath = ""
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var photo50: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -22,6 +22,6 @@ class RealmGroups: Object {
         return "id"
     }
     func toModel() -> ItemGroup {
-        return ItemGroup(id: id, name: groupName, photo50: avatarPath)
+        return ItemGroup(id: id, name: name, photo50: photo50)
     }
 }

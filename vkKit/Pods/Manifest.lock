@@ -5,6 +5,15 @@ PODS:
   - Kingfisher (5.13.1):
     - Kingfisher/Core (= 5.13.1)
   - Kingfisher/Core (5.13.1)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
   - Realm (4.3.2):
     - Realm/Headers (= 4.3.2)
   - Realm/Headers (4.3.2)
@@ -17,6 +26,7 @@ DEPENDENCIES:
   - DotsLoading
   - INSPhotoGallery
   - Kingfisher
+  - PromiseKit
   - RealmSwift
   - SwiftyJSON
 
@@ -26,6 +36,7 @@ SPEC REPOS:
     - DotsLoading
     - INSPhotoGallery
     - Kingfisher
+    - PromiseKit
     - Realm
     - RealmSwift
     - SwiftyJSON
@@ -35,10 +46,11 @@ SPEC CHECKSUMS:
   DotsLoading: 1721e46a85d2424e5febbe705fb9e8b23cfea2db
   INSPhotoGallery: ad317cb9a59c7a5f08550e4155b49622c24dcab3
   Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: ddb842deb7a5039ba50fed63fea745d226516bb8
+PODFILE CHECKSUM: 304fa8183ffe58f38f6b3d11e253218a9bc356f2
 
 COCOAPODS: 1.8.4

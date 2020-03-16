@@ -614,7 +614,15 @@
         <scene sceneID="KxH-1y-Fr1">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBar" id="Vec-hv-6Vy" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hUu-lj-CvD"/>
+                    <navigationItem key="navigationItem" id="hUu-lj-CvD">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="NzN-XC-y5m">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JWS-Fr-64C">
+                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ufX-7J-pmu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

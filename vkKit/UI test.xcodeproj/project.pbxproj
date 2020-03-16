@@ -61,6 +61,8 @@
 		857ECCAC23A788B800EC097A /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857ECCAB23A788B800EC097A /* CustomCollectionViewLayout.swift */; };
 		859FF7D323CB103400C23A7B /* NewsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859FF7D223CB103400C23A7B /* NewsBase.swift */; };
 		85A73E7223D98B0E00B3FDDA /* RealmFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A73E7123D98B0E00B3FDDA /* RealmFriends.swift */; };
+		85B67BCD24117F11002A1025 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B67BCC24117F11002A1025 /* ViewControllerExt.swift */; };
+		85B67BCF24118631002A1025 /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B67BCE24118631002A1025 /* IntExt.swift */; };
 		85B91A5C23FBBA0C005EE1B2 /* VKNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B91A5B23FBBA0C005EE1B2 /* VKNews.swift */; };
 		85F9B5D023EBD39600235117 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F9B5CF23EBD39600235117 /* RegistrationController.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +124,8 @@
 		857ECCAB23A788B800EC097A /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		859FF7D223CB103400C23A7B /* NewsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBase.swift; sourceTree = "<group>"; };
 		85A73E7123D98B0E00B3FDDA /* RealmFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFriends.swift; sourceTree = "<group>"; };
+		85B67BCC24117F11002A1025 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		85B67BCE24118631002A1025 /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
 		85B91A5B23FBBA0C005EE1B2 /* VKNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKNews.swift; sourceTree = "<group>"; };
 		85F9B5CF23EBD39600235117 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		95611E6384A843B757F7913C /* Pods_UI_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +213,7 @@
 		856944A8238AF62F00A4E617 /* UI test */ = {
 			isa = PBXGroup;
 			children = (
+				85B67BCB24117EE6002A1025 /* Extentions */,
 				854AC85523E06BC1002BD120 /* Error */,
 				8515382223D584B400690A8C /* VKAPI */,
 				857ECC7223A2AA0800EC097A /* Message */,
@@ -351,6 +356,15 @@
 				857ECC7023A2A5A700EC097A /* News.swift */,
 			);
 			path = "BaseModels(Depricated)";
+			sourceTree = "<group>";
+		};
+		85B67BCB24117EE6002A1025 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				85B67BCC24117F11002A1025 /* ViewControllerExt.swift */,
+				85B67BCE24118631002A1025 /* IntExt.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		85C43DF523E1E4510064421D /* RealmRepository */ = {
@@ -518,6 +532,7 @@
 				857ECC5623957EAB00EC097A /* PhotoController.swift in Sources */,
 				857ECC52239022C800EC097A /* FriendsController.swift in Sources */,
 				85037F7A23E20F6C00601A3F /* CustomPhotoLayout.swift in Sources */,
+				85B67BCF24118631002A1025 /* IntExt.swift in Sources */,
 				856944AE238AF62F00A4E617 /* LoginFormController.swift in Sources */,
 				857ECC68239D4BDA00EC097A /* Group.swift in Sources */,
 				8545D22E240A8AFB00FCAB1E /* MenuController.swift in Sources */,
@@ -544,6 +559,7 @@
 				85F9B5D023EBD39600235117 /* RegistrationController.swift in Sources */,
 				857ECC7823A2AB2700EC097A /* MessageCell.swift in Sources */,
 				853311C8240A9F3D00DDC359 /* MenuOptionCell.swift in Sources */,
+				85B67BCD24117F11002A1025 /* ViewControllerExt.swift in Sources */,
 				8515382E23D5D30700690A8C /* VKGroupSearch.swift in Sources */,
 				8556EC8923D9AF7500DDC29B /* RealmNews.swift in Sources */,
 				85080BE323DEF498009621DC /* VKCommonResponse.swift in Sources */,

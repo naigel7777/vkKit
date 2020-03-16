@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 //// MARK: - VKGroupList
 //struct VKGroupList: Codable {
 //    let response: ResponseGroup
@@ -29,6 +29,17 @@ struct ItemGroup: Codable {
         case id, name
         case photo50 = "photo_50"
      
+    }
+    init(_ json: JSON) {
+        id = json["id"].intValue
+        name = json["name"].stringValue
+        photo50 = json["photo_50"].stringValue
+    }
+    
+    init(id: Int, name: String, photo50:String) {
+        self.id = id
+        self.name = name
+        self.photo50 = photo50
     }
 }
 //extension VKGroupList{

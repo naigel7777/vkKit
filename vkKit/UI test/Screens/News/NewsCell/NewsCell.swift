@@ -22,6 +22,8 @@ class NewsCell: UITableViewCell {
     var collection: [UIImage?] = []
     weak var vc: UIViewController? = nil
     
+    @IBOutlet weak var constaintToolBar: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         self.newsImage.register(UINib.init(nibName: "img", bundle: nil), forCellWithReuseIdentifier: "img")
     }
@@ -40,7 +42,11 @@ class NewsCell: UITableViewCell {
         newsImage.dataSource = self
         newsImage.delegate = self
         newsImage.reloadData()
-        
+        if collection.isEmpty {
+            constaintToolBar.constant = 20
+        } else {
+            constaintToolBar.constant = 120
+        }
     }
     
     override func prepareForReuse() {
@@ -52,7 +58,7 @@ class NewsCell: UITableViewCell {
         collection = []
         vc = nil
     }
-    
+
     private func getImg(_ stringUrl: String) -> UIImage? {
         var image: UIImage? = UIImage()
         if let url = URL(string: stringUrl), let imgData = try? Data(contentsOf: url) {

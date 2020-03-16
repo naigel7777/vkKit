@@ -50,7 +50,10 @@ class FriendsController: UITableViewController {
         }
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.refreshData()
+    }
 //MARK: Configuration Table view
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,12 +66,12 @@ class FriendsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTemplate", for: indexPath) as? FriendCell,
-        
-              let model = presenter?.getModelAtIndex(indexPath: indexPath)
+            
+            let model = presenter?.getModelAtIndex(indexPath: indexPath)
             else { return UITableViewCell() }
         cell.bind(model: model)
         
-
+        
         return cell
         
     }

@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol NewsRepository {
     func addNews (userName: String, imagePath: String, publicdate: String, textNews: String, avatar: String)
-    func getAllNews() throws -> Results<RealmNews>
+    func getAllNews() -> [News]?
     func addLastNews (news: [News])
 }
 
@@ -36,9 +36,9 @@ class RepositoryRealmNews: NewsRepository  {
         news.forEach { news in
             let newNews = RealmNews()
             newNews.userName = news.userName
-//            let image = news.imagePath
-//            newNews.imagePath.append(image)
-//            newNews.imagePath = news.imagePath
+            news.imagePath.forEach { img in
+              newNews.imagePath.append(img)
+            }
             newNews.publicDate = news.publicDate
             newNews.textNews = news.textNews
             newNews.avatar = news.avatar
@@ -48,19 +48,24 @@ class RepositoryRealmNews: NewsRepository  {
        
         
         try! realm.write {
-            
+            realm.deleteAll()
             realm.add(lastNews)
         }
     }
     
-    func getAllNews() throws -> Results<RealmNews> {
+    func getAllNews()  -> [News]? {
         do {
             let realm = try Realm()
-            return realm.objects(RealmNews.self)
+            let resultRealm = realm.objects(RealmNews.self)
+            var items = [News]()
+            resultRealm.forEach { item in
+                items.append(item.convert)
+            }
+            return items
         } catch {
-            throw error
+            print(error)
         }
-        
+        return nil
     }
     
 

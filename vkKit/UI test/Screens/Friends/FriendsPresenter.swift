@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol FriendsPresenter {
     func viewDidLoad2()
+    func refreshData()
     func searchFriends(name: String)
     func numberOfSections() -> Int
     func numberOfRowsInSection(section: Int) -> Int
@@ -147,10 +148,13 @@ extension FriendsPresenterImplementation: FriendsPresenter {
     }
     func viewDidLoad2() {
         
-        getFriendFromRealm()
+      
         showFriends()
-        vkApiRequest()
+        
         addRefreshConrol()
     }
-    
+    func refreshData() {
+         getFriendFromRealm()
+         vkApiRequest()
+    }
 }
