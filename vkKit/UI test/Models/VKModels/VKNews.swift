@@ -80,7 +80,7 @@ struct VKNews  {
         json["response"]["profiles"].arrayValue.forEach { (item) in
             profiles.append(Profile(item))
         }
-        nextFrom = json["next_from"].stringValue
+        nextFrom = json["response"]["next_from"].stringValue
     }
 
 }

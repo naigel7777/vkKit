@@ -139,7 +139,7 @@ extension NewsViewController: UITableViewDataSourcePrefetching {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
-            self.datdbase.addLastNews(news: result)
+//            self.datdbase.addLastNews(news: result)
         }
         isFetchingMoreNews = false
     }
