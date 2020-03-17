@@ -12,19 +12,25 @@ import RealmSwift
 class RealmNews: Object{
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var userName = ""
-    let imagePath = List<String>()
+    let imageMin = List<String>()
+    let imageMax = List<String>()
     @objc dynamic var textNews = ""
-    @objc dynamic var publicDate = ""
+    @objc dynamic var publicDate = 0
     @objc dynamic var avatar = ""
     
     var convert: News {
-       var items = [String]()
-        self.imagePath.forEach { img in
-            items.append(img)
+       var iMax = [String]()
+        self.imageMax.forEach { img in
+            iMax.append(img)
+        }
+        var iMin = [String]()
+        self.imageMin.forEach { (imm) in
+            iMin.append(imm)
         }
         return News(username: self.userName,
                     avatar: self.avatar,
-                    imagePath: items,
+                    imageMin: iMin,
+                    imageMax: iMax,
                     textNews: self.textNews,
                     publicDate: self.publicDate)
         

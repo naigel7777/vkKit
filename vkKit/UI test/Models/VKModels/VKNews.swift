@@ -38,16 +38,17 @@ struct VKNews  {
                 avatar = group?.photo50 ?? ""
             }
             
+            var maxP: [String] = []
+            var minP: [String] = []
+            
             item.attachments.filter({$0.type == "photo"}).forEach { (attach) in
                 if let photos = attach.photo?.sizes {
-                    var maxP: SizeNews = photos.first ?? .zero
-                    photos.forEach{
-                        if $0.width > maxP.width {
-                            maxP = $0
-                        }
-                    }
-                    imagePath.append(maxP.url)
-                    
+                    let p = photos.map({ $0.width })
+                
+                   let maxPhoto = photos.first(where: { $0.width == (p.max() ?? 0) }) ?? .zero
+                    let minPhoto = photos.first(where: { $0.width == (p.min() ?? 0) }) ?? .zero
+                    maxP.append(maxPhoto.url)
+                    minP.append(minPhoto.url)
                 }
                 
                 
@@ -55,9 +56,10 @@ struct VKNews  {
             
             array.append(News(username: fullname,
                               avatar: avatar,
-                              imagePath: imagePath,
+                              imageMin: minP,
+                              imageMax: maxP,
                               textNews: item.text,
-                              publicDate: item.date.toDateString))
+                              publicDate: item.date))
         }
         
         
@@ -164,7 +166,7 @@ struct SizeNews {
     }
     
     private init() {
-        type = .m
+        type = .o
         url = ""
         width = -1
         height = -1

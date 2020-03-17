@@ -162,30 +162,35 @@ class VKApi
                      }
                  }
     func getNextNews(token: String, nextFrom: String, async: @escaping ([News], String) -> ())
-     {
-         
-         let requestUrl = vkURL + "newsfeed.get"
-         let params = ["access_token": token,
-                       "v": apiVersion,
-                       "filters":"post",
-                       "return_banned": "0",
-                       "start_from":nextFrom,
-                       "count": "10"]
-         
-         AF.request(requestUrl,
-                           method: .get,
-                           parameters: params).responseJSON { response in
-                            switch response.result {
-                           
-                            case let .success(value):
-                                let nextFrom = VKNews(JSON(value)).nextFrom
-                                async(VKNews(JSON(value)).convert, nextFrom)
-                            case let .failure(error):
-                                print(error)
-                            }
+    {
+        
+        let requestUrl = vkURL + "newsfeed.get"
+        let params = ["access_token": token,
+                      "v": apiVersion,
+                      "filters":"post",
+                      "return_banned": "0",
+                      "start_from":nextFrom,
+                      "count": "13"]
+        
+        DispatchQueue.global(qos: .background).async {
+            AF.request(requestUrl,
+                       method: .get,
+                       parameters: params).responseJSON { response in
+                        switch response.result {
                             
-                 }
-             }
+                        case let .success(value):
+                            print(nextFrom)
+                            print(value)
+                            let nextFrom = VKNews(JSON(value)).nextFrom
+                            async(VKNews(JSON(value)).convert, nextFrom)
+                        case let .failure(error):
+                            print(error)
+                        }
+                        
+            }
+        }
+        
+    }
     
     func searchGroup(token: String, searchText: String, completion:@escaping (Out<[ItemGroup], Error>) -> ())
     {

@@ -18,5 +18,11 @@ class CollectionCellCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
       
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 15
+        self.clipsToBounds = true
+    }
+    
 }

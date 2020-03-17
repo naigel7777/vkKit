@@ -8,6 +8,7 @@
 
 import UIKit
 import INSPhotoGallery
+import Kingfisher
 
 class NewsCell: UITableViewCell {
     
@@ -19,7 +20,8 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet weak var newsImage: UICollectionView!
     @IBOutlet weak var newsText: UILabel!
-    var collection: [UIImage?] = []
+    var collection: [String] = []
+    var fullscreenCollection: [INSPhoto] = []
     weak var vc: UIViewController? = nil
     
     @IBOutlet weak var constaintToolBar: NSLayoutConstraint!
@@ -33,15 +35,22 @@ class NewsCell: UITableViewCell {
     {
         vc = viewController
         newsText.text = item.textNews
-        avatar.image = getImg(item.avatar)
-        postTime.text = item.publicDate
+        avatar.kf.setImage(with: URL(string: item.avatar))
+        postTime.text = item.publicDate.toDateString
         userName.text = item.userName
-        item.imagePath.forEach { (imm) in
-            collection.append(getImg(imm))
+        collection = item.imageMin
+        
+        for i in item.imageMax.indices {
+            let maxURL = URL(string: item.imageMax[i])
+            let minURL = URL(string: item.imageMin[i])
+            let ins = INSPhoto(imageURL: maxURL, thumbnailImageURL: minURL)
+            fullscreenCollection.append(ins)
         }
+        
         newsImage.dataSource = self
         newsImage.delegate = self
         newsImage.reloadData()
+        
         if collection.isEmpty {
             constaintToolBar.constant = 20
         } else {
@@ -55,17 +64,12 @@ class NewsCell: UITableViewCell {
         avatar.image = nil
         postTime.text = nil
         userName.text = nil
+        fullscreenCollection = []
         collection = []
         vc = nil
     }
 
-    private func getImg(_ stringUrl: String) -> UIImage? {
-        var image: UIImage? = UIImage()
-        if let url = URL(string: stringUrl), let imgData = try? Data(contentsOf: url) {
-                   image = UIImage(data: imgData)
-               }
-        return image
-    }
+
     
 }
 
@@ -78,18 +82,19 @@ extension NewsCell: UICollectionViewDelegate, UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "img", for: indexPath) as? CollectionCellCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.image1.image = collection[indexPath.item]
+        
+        cell.image1.kf.setImage(with: URL(string: collection[indexPath.item]))
         return cell
     }
 
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            let cell = collectionView.cellForItem(at: indexPath) as! CollectionCellCollectionViewCell
-        let photos =  collection.map {INSPhoto(image: $0, thumbnailImage: $0) }
-           let currentPhoto = photos[indexPath.row]
-           let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
 
-           galleryPreview.referenceViewForPhotoWhenDismissingHandler = { photo in
-               if let index = photos.lastIndex(where: {$0 === photo}) {
+           let currentPhoto = fullscreenCollection[indexPath.row]
+           let galleryPreview = INSPhotosViewController(photos: fullscreenCollection, initialPhoto: currentPhoto, referenceView: cell)
+
+           galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
+            if let index = self?.fullscreenCollection.lastIndex(where: {$0 === photo}) {
                    let indexPath = IndexPath(row: index, section: 0)
                    return collectionView.cellForItem(at: indexPath) as? CollectionCellCollectionViewCell
                }
