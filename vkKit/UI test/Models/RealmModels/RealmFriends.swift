@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+class FriendsSections: Object {
+    @objc dynamic var nameSection: String = ""
+    let elements = List<RealmFriends>()
+}
+
 class RealmFriends: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var userName: String = ""

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum MenuOption: Int, CustomStringConvertible {
+enum MenuOption: Int, CaseIterable, CustomStringConvertible {
       
     case Profile
     case Settings
@@ -20,7 +20,7 @@ enum MenuOption: Int, CustomStringConvertible {
         switch self {
         case .Profile: return "Профиль"
         case .Settings: return "Settings"
-        case .Notifications: return "Notif"
+        case .Notifications: return "Уведомления"
         case .Exit: return "Exit"
             
         }
@@ -29,7 +29,7 @@ enum MenuOption: Int, CustomStringConvertible {
         switch self {
         case .Profile: return UIImage(named: "profile") ?? UIImage()
         case .Settings: return UIImage(named: "Settings") ?? UIImage()
-        case .Notifications: return UIImage(named: "Notification") ?? UIImage()
+        case .Notifications: return UIImage(named: "notification") ?? UIImage()
         case .Exit: return UIImage(named: "exit") ?? UIImage()
             
         }

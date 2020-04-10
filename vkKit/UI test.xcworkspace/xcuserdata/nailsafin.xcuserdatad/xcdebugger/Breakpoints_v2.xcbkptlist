@@ -185,8 +185,8 @@
             filePath = "UI test/Models/RealmModels/RealmFriends.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "RealmFriends"
             landmarkType = "3">
             <Locations>
