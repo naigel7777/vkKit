@@ -93,7 +93,6 @@ class TableViewGroup: UITableViewController {
                         self?.tableView.reloadData()
                     }
                     
-                    
                 }
             }
         } catch {
@@ -174,10 +173,7 @@ class TableViewGroup: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCells", for: indexPath) as? GroupCells
             else { return UITableViewCell() }
-        cell.NameGroup.text =  groupSection[indexPath.section].item[indexPath.row].name
-        let url = URL(string: groupSection[indexPath.section].item[indexPath.row].photo50)
-        cell.groupImage.image.kf.setImage(with: url)
-        
+        cell.bind(model: groupSection[indexPath.section].item[indexPath.row])
         return cell
         
     }
@@ -200,17 +196,21 @@ class TableViewGroup: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       let view = UIView()
-        view.backgroundColor = UIColor.white
-
-        let label = UILabel()
-        label.text = groupSection[section].title
-        label.frame = CGRect(x: 10, y: 15, width: 8, height: 15)
-        label.textColor = UIColor.darkGray
-        label.adjustsFontSizeToFitWidth = true
+        let view = UIView()
+        view.backgroundColor = .white
+        
+        let label: UILabel = {
+            $0.text = groupSection[section].title
+            $0.frame = CGRect(x: 5, y: 5, width: 25, height: 25)
+            $0.textColor = .seaGreen
+            $0.font = .brandFont
+            $0.textAlignment = .center
+            return $0
+        }(UILabel())
+        
         view.addSubview(label)
-
-       return view
+        
+        return view
     }
 }
 
@@ -276,4 +276,11 @@ class GroupCells: UITableViewCell {
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var groupImage: circleAvatar!
     @IBOutlet weak var NameGroup: UILabel!
+    
+    func bind(model: RealmGroups) {
+        self.NameGroup.text = model.name
+        let url = URL(string: model.photo50)
+        self.groupImage.image.kf.setImage(with: url)
+    }
+    
 }
