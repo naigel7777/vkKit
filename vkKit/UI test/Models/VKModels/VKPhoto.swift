@@ -24,14 +24,15 @@ struct ItemPhoto: Codable {
     let id, albumID, ownerID: Int
     let sizes: [Size]
     let text: String
-    let date, postID: Int
+    let date: Int
+ //   let postID: Int
 
     enum CodingKeys: String, CodingKey {
         case id
         case albumID = "album_id"
         case ownerID = "owner_id"
         case sizes, text, date
-        case postID = "post_id"
+ //       case postID = "post_id"
     }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 
 
 // MARK: - Item
-struct ItemFriend: Codable {
+struct ItemFriend: Codable, ResultItem {
     let id: Int
     let firstName: String
     let lastName: String

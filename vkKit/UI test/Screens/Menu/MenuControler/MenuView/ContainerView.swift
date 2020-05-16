@@ -14,10 +14,10 @@ class ContainerView: UIView {
     //MARK: - Propites
     
     
-    private var isExpanded: Bool = true
+    var isExpanded: Bool = true
     
     let topMenuController: UIView = {
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = .secondarySystemBackground
         return $0
     }(UIView())
     
@@ -40,10 +40,19 @@ class ContainerView: UIView {
         return $0
     }(UILabel())
     
+    let headLabel: UILabel = {
+        $0.textColor = .black
+        $0.backgroundColor = .clear
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: 16)
+        return $0
+    }(UILabel())
+    
     let menuList: Menu = {
         $0.backgroundColor = .darkGray
         return $0
     }(Menu())
+    
     
     
     //MARK: - Init
@@ -55,13 +64,14 @@ class ContainerView: UIView {
     
     //MARK: - Handlers
     func layouts() {
-        self.backgroundColor = .darkGray
+        self.backgroundColor = .secondarySystemBackground
         menuList.pin(to: self).all(pin.safeArea)
         menuList.initViews()
-        menuList.tapTableCell = didSelectMenuOption(menuOption:)
+
         
         mainView.pin(to: self).all(pin.safeArea)
         topMenuController.pin(to: mainView).horizontally().top().height(40)
+        headLabel.pin(to: topMenuController).height(topMenuController.frame.height).width(topMenuController.frame.width - 80).center()
         menuBtn.pin(to: topMenuController).size(topMenuController.frame.height).topLeft()
         menuBtn.addTarget(self, action: #selector(menuTap), for: .touchUpInside)
         infoLabel.pin(to: mainView).height(40).horizontally(40).vCenter()
@@ -97,28 +107,6 @@ class ContainerView: UIView {
         }
     }
     
-    func didSelectMenuOption(menuOption: MenuOption) {
-        showMenuController(shouldExpand: false)
-        switch menuOption {
-            
-        case .Profile:
-            infoLabel.text = "press button Profile"
-            mainView.backgroundColor = .lightGray
-        case .Settings:
-            infoLabel.text = "press button Settings"
-            mainView.backgroundColor = .red
-            
-        case .Notifications:
-            infoLabel.text = "press button Notification"
-            mainView.backgroundColor = .magenta
-            
-        case .Exit:
-           
-            infoLabel.text = "press button Exit"
-            mainView.backgroundColor = .purple
-            
-        
-        }
-    }
+
 
 }

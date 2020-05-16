@@ -11,26 +11,26 @@ import UIKit
 
 enum MenuOption: Int, CaseIterable, CustomStringConvertible {
       
-    case Profile
-    case Settings
-    case Notifications
-    case Exit
+    case profile
+    case friends
+    case groups
+    case exit
     
     var description: String {
         switch self {
-        case .Profile: return "Профиль"
-        case .Settings: return "Settings"
-        case .Notifications: return "Уведомления"
-        case .Exit: return "Exit"
+        case .profile: return "Профиль"
+        case .friends: return "Друзья"
+        case .groups: return "Группы"
+        case .exit: return "Exit"
             
         }
     }
     var image: UIImage {
         switch self {
-        case .Profile: return UIImage(named: "profile") ?? UIImage()
-        case .Settings: return UIImage(named: "Settings") ?? UIImage()
-        case .Notifications: return UIImage(named: "notification") ?? UIImage()
-        case .Exit: return UIImage(named: "exit") ?? UIImage()
+        case .profile: return UIImage(named: "profile") ?? UIImage()
+        case .friends: return UIImage(named: "Settings") ?? UIImage()
+        case .groups: return UIImage(named: "notification") ?? UIImage()
+        case .exit: return UIImage(named: "exit") ?? UIImage()
             
         }
     }
