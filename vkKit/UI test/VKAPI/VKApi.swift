@@ -54,7 +54,7 @@ class VKApi
     }
     
     
-    func getFriendlist(token: String, userID: String, completion: @escaping (Out<[ItemFriend], Error>) -> ())
+    func getFriendlist(token: String = Session.shared.token, userID: String = Session.shared.userid, completion: @escaping (Out<[ItemFriend], Error>) -> ())
     {
         let requestUrl = vkURL + "friends.get"
         let params = ["access_token": token,
@@ -64,10 +64,9 @@ class VKApi
                       "user_id": userID]
         sendRequest(url: requestUrl, params: params) {completion($0) }
     }
+   
     
-
-    
-    func getGroupList(token: String,userID: String, completion: @escaping (Out<[ItemGroup], Error>) -> Void)
+    func getGroupList(token: String = Session.shared.token, userID: String = Session.shared.userid, completion: @escaping (Out<[ItemGroup], Error>) -> Void)
     {
         let requestUrl = vkURL + "groups.get"
         let params = ["access_token": token,
@@ -79,6 +78,19 @@ class VKApi
          sendRequest(url: requestUrl, params: params) {completion($0) }
 
             }
+    
+    func getFriendGrouplist(token: String = Session.shared.token, userID: String = Session.shared.userid, requestType: ItemsFG, completion: @escaping (Out<[Items], Error>) -> ())
+    {
+        let requestUrl = vkURL + requestType.rawValue
+        let params = ["access_token": token,
+                      "v": apiVersion,
+                      "order": "name",
+                      "extended": "1",
+                      "filter":"groups",
+                      "fields": "photo_50, photo_100, photo_200",
+                      "user_id": userID]
+        sendRequest(url: requestUrl, params: params) {completion($0) }
+    }
 
     func getGroupListFuture(token: String,userID: String) -> Promise<[ItemGroup]> {
         let requestUrl = vkURL + "groups.get"
@@ -138,6 +150,33 @@ class VKApi
                 }
             }
 
+    func getPhotoWall(token: String,ownerID: String, async: @escaping ([ItemPhoto]) -> ())
+    {
+        
+        let requestUrl = vkURL + "photos.getUserPhotos"
+        let params = ["access_token": token,
+                      "v": apiVersion,
+                      "count":"50",
+                      "extended": "0",
+                      "sort": "0",
+                     "user_id": ownerID]
+        
+        AF.request(requestUrl,
+                   method: .get,
+                          parameters: params).responseData {(response) in
+               guard let data = response.value else {
+                        return
+                    }
+                    do {
+                        let response = try JSONDecoder().decode(VKPhoto.self, from: data)
+                        async(response.response.items)
+                    } catch {
+                        self.errPars.showErrorAlert(self.vc, errorMessage: "Отсутсвуют фото")
+                        print(error)
+                    }
+                }
+            }
+
         func getNews(token: String, async: @escaping ([News]) -> ())
          {
              
@@ -161,6 +200,30 @@ class VKApi
                                 
                      }
                  }
+    
+    func getProfileInfo(token: String,ownerID: String) -> Promise<VKProfileInfo>{
+        let requestUrl = vkURL + "account.getProfileInfo"
+        let params = ["access_token": token,
+                      "v": apiVersion,
+                      "owner_id": ownerID]
+        return Promise { resolver in
+            AF.request(requestUrl,
+                       method: .get,
+                       parameters: params).responseData {(response) in
+                        guard let data = response.value else { return }
+                        do {
+                       
+                            let resp = try JSONDecoder().decode(VKProfileInfo.self, from: data)
+                            resolver.fulfill(resp)
+                    
+                        } catch {
+                            resolver.reject(error)
+                        }
+            }
+            
+        }
+    }
+    
     func getNextNews(token: String, nextFrom: String, async: @escaping ([News], String) -> ())
     {
         
@@ -179,8 +242,6 @@ class VKApi
                         switch response.result {
                             
                         case let .success(value):
-                            print(nextFrom)
-                            print(value)
                             let nextFrom = VKNews(JSON(value)).nextFrom
                             async(VKNews(JSON(value)).convert, nextFrom)
                         case let .failure(error):

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JsD-LQ-etV">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JsD-LQ-etV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,14 +28,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dyR-VK-qPO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bq0-9A-BOA">
-                                        <rect key="frame" x="152.66666666666666" y="188" width="108.99999999999997" height="20.333333333333343"/>
+                                        <rect key="frame" x="152.5" y="188" width="109" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="bN7-tA-BJl"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -115,14 +115,14 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPU-LP-dpL">
-                                        <rect key="frame" x="137.66666666666666" y="520" width="138.99999999999997" height="30"/>
+                                        <rect key="frame" x="137.5" y="520" width="139" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Enter with Web view">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awa-Uf-8N4">
-                                        <rect key="frame" x="165.66666666666666" y="469" width="83" height="30"/>
+                                        <rect key="frame" x="165.5" y="469" width="83" height="30"/>
                                         <state key="normal" title="Registration">
                                             <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                         </state>
@@ -185,23 +185,23 @@
             <objects>
                 <viewController id="69E-i3-91X" customClass="RegistrationController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmI-eD-Noi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mnA-CG-a2D">
-                                <rect key="frame" x="57" y="208" width="300" height="300"/>
+                                <rect key="frame" x="57" y="254" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your information for registration" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtb-A4-qi8">
-                                        <rect key="frame" x="27.333333333333329" y="0.0" width="245.33333333333337" height="48"/>
+                                        <rect key="frame" x="27.5" y="0.0" width="245.5" height="48"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Rk-TY-j4m">
-                                        <rect key="frame" x="17" y="93.666666666666686" width="266" height="34"/>
+                                        <rect key="frame" x="17" y="93.5" width="266" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnQ-Q5-Dd7">
-                                                <rect key="frame" x="0.0" y="6.666666666666627" width="133" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="7" width="133" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -217,7 +217,7 @@
                                         <rect key="frame" x="0.0" y="180" width="300" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-bF-vN2">
-                                                <rect key="frame" x="0.0" y="6.9999999999999982" width="150" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="7" width="150" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -271,7 +271,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="photocontroller" hidesBottomBarWhenPushed="YES" id="8Gm-VM-rYG" customClass="PhotoController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1tb-kP-NYA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Khd-8j-j64">
@@ -341,7 +341,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="FriendsController" id="0KP-tq-Ko6" customClass="FriendsController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="80" estimatedRowHeight="90" sectionHeaderHeight="25" sectionFooterHeight="1" id="Shp-zV-GWu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search users" id="1gP-bQ-dmQ">
@@ -365,7 +365,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1i-JK-oKY">
-                                            <rect key="frame" x="75" y="30.666666666666671" width="324" height="19"/>
+                                            <rect key="frame" x="75" y="30.5" width="324" height="19"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -437,7 +437,7 @@
             <objects>
                 <tableViewController id="RfO-Cb-XhC" customClass="NewsViewController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="1" id="pZD-d7-tGs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -456,7 +456,7 @@
             <objects>
                 <viewController id="69X-cb-BHf" customClass="VKLoginController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AaA-UU-aZY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dqI-Wb-lfC"/>
@@ -476,7 +476,7 @@
                 <navigationController id="jru-tK-sWY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Новости" image="list.dash" catalog="system" id="sEN-7E-g08"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1cZ-vj-5ZV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -487,6 +487,39 @@
             </objects>
             <point key="canvasLocation" x="888" y="1046"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="FBX-Rk-Nsp">
+            <objects>
+                <navigationController id="CmN-RS-quO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="trash" catalog="system" id="l1s-b4-Nq5"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FnL-O7-geA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="r93-CR-u1Z" kind="relationship" relationship="rootViewController" id="9hR-QJ-5sC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvh-5Y-u7q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2916" y="1203"/>
+        </scene>
+        <!--Settings Controller-->
+        <scene sceneID="sz3-lh-qmA">
+            <objects>
+                <viewController id="r93-CR-u1Z" customClass="SettingsController" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ceq-DZ-OkH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iFm-Cf-anv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="asq-uf-BUm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i2y-Va-oef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3734" y="1194"/>
+        </scene>
         <!--Друзья-->
         <scene sceneID="4Hg-kz-kh1">
             <objects>
@@ -494,7 +527,7 @@
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.fill" catalog="system" id="RmE-pO-14G"/>
                     <navigationItem key="navigationItem" id="buE-Xe-tTD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3h6-X0-TmV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -510,7 +543,7 @@
             <objects>
                 <tableViewController id="85K-8E-cJJ" customClass="TableViewGroup" customModule="UI_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="100" estimatedRowHeight="120" sectionHeaderHeight="18" sectionFooterHeight="18" id="g3R-wM-xeF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="search groups" id="1o4-ud-K3i">
@@ -524,21 +557,21 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCells" rowHeight="60" id="Hib-bn-Oz2" customClass="GroupCells" customModule="UI_test" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="111.33333206176758" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="111.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hib-bn-Oz2" id="DV7-E2-p0b">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9qw-Fi-BqU">
-                                            <rect key="frame" x="20" y="6.6666666666666679" width="50" height="47.333333333333336"/>
+                                            <rect key="frame" x="20" y="6.5" width="50" height="47.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9qw-Fi-BqU" secondAttribute="height" multiplier="1:1" id="5B7-Md-UQm"/>
                                                 <constraint firstAttribute="width" constant="50" id="e0n-jn-ATK"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05I-Vt-8yd">
-                                            <rect key="frame" x="85" y="19.666666666666668" width="309" height="21.000000000000004"/>
+                                            <rect key="frame" x="85" y="19.5" width="309" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -596,7 +629,7 @@
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3.fill" catalog="system" id="0qD-2j-Ob6"/>
                     <navigationItem key="navigationItem" id="cef-Za-W3d"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WgX-nv-YCP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aGk-cO-5EK">
@@ -617,7 +650,7 @@
                     <navigationItem key="navigationItem" id="hUu-lj-CvD">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="NzN-XC-y5m">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JWS-Fr-64C">
-                                <rect key="frame" x="-23" y="-15" width="92" height="30"/>
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -634,6 +667,7 @@
                         <segue destination="7RS-xz-w1T" kind="relationship" relationship="viewControllers" id="CUc-py-hWK"/>
                         <segue destination="jru-tK-sWY" kind="relationship" relationship="viewControllers" id="yhX-a2-qEk"/>
                         <segue destination="0iB-Al-5ZU" kind="unwind" unwindAction="unwindToLogin:" id="y9u-QH-e4c"/>
+                        <segue destination="CmN-RS-quO" kind="relationship" relationship="viewControllers" id="0ab-bM-iah"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyt-NW-YhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -644,11 +678,12 @@
     </scenes>
     <resources>
         <image name="123" width="1024" height="951"/>
-        <image name="list.dash" catalog="system" width="64" height="42"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="person.3" catalog="system" width="72" height="35"/>
-        <image name="person.3.fill" catalog="system" width="71" height="34"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <image name="vk-256" width="256" height="256"/>
     </resources>
 </document>

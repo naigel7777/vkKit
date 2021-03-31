@@ -11,6 +11,7 @@ pod 'RealmSwift'
 pod 'INSPhotoGallery'
 pod 'SwiftyJSON'
 pod 'PromiseKit'
+pod 'PinLayout'
   # Pods for UI test
 
 end

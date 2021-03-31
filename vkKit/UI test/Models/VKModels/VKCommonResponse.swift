@@ -15,4 +15,20 @@ struct VKCommonResponse<T: Decodable>: Decodable {
 struct VKCommonResponseArray <T:Decodable>: Decodable {
     var count: Int
     var items: [T]
+    
+    enum CodingKeys: String, CodingKey {
+           case count, items
+           
+
+       }
+    
+    public init(from decoder: Decoder) throws {
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.count = try container.decode(Int.self, forKey: .count)
+        self.items = try container.decode([T].self, forKey: .items)
+        
+        
+        
+    }
 }

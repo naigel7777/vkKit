@@ -20,7 +20,7 @@ import SwiftyJSON
 //}
 
 // MARK: - Item
-struct ItemGroup: Codable {
+struct ItemGroup: Codable, ResultItem {
     let id: Int
     let name: String
     let photo50: String

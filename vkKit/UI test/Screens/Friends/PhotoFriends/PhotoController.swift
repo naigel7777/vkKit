@@ -27,10 +27,9 @@ class PhotoController: UICollectionViewController, UINavigationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let edgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgeRecognize(_:)))
-        edgeRecognizer.edges = .left
-        view.addGestureRecognizer(edgeRecognizer)
-        // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        let edgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgeRecognize(_:)))
+//        edgeRecognizer.edges = .left
+//        view.addGestureRecognizer(edgeRecognizer)
         navigationController?.delegate = self
         vkApi = VKApi(self)
         vkApi?.getPhoto(token: Session.shared.token, ownerID: String(describing: ownerID)) { (photos) in
@@ -61,6 +60,7 @@ class PhotoController: UICollectionViewController, UINavigationControllerDelegat
         }
     }
     func navigationController(_ navigationController: UINavigationController,
+                              
                               interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return transInteraction
     }
